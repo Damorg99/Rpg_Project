@@ -15,7 +15,6 @@ class Rpggame < Chingu::Window
 
 
 
-
   def draw
     super
     @backround.draw(0,0,0,1.5,1.5)
