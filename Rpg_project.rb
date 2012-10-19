@@ -34,8 +34,12 @@ class Player < Chingu::GameObject
 
 
   def move_left
-    return if $window.button_down?(Gosu::KbW) or $window.button_down?(Gosu::KbS)
-    @x = @x - 4
+    if $window.button_down?(Gosu::KbW) or $window.button_down?(Gosu::KbS)
+      @x -= Math::sin(Math::PI/4) * 4
+      else
+        @x = @x - 4
+      end
+
     if $frame_rate% 20 < 10
 
       @image = Gosu::Image["#{$images[2]}"]
@@ -47,9 +51,11 @@ class Player < Chingu::GameObject
   end
   def move_right
     if $window.button_down?(Gosu::KbW) or $window.button_down?(Gosu::KbS)
-      @x += math::sin
+      @x += Math::sin(Math::PI/4) * 4
+    else
+      @x = @x + 4
     end
-    @x = @x + 4
+
 
     if $frame_rate% 20 < 10
 
