@@ -3,7 +3,7 @@ class Rpggame < Chingu::Window
   def initialize
     super
     $window.caption = 'RPG test'
-    @backround = Gosu::Image['Backround_grass_1.png']
+    @backround = Gosu::Image['Starting_area backround.png']
     Player.create.input = {holding_a: :move_left, holding_d: :move_right, holding_w: :move_up, holding_s: :move_down}
     $images =  ["Cheracter back step 1 crop.png", "Charecter back step 2 crop.png", "Charecter left step 1 crop.png", "Charecter left step 2 crop.png", "Charecter right step 1 crop.png", "Charecter right step 2 crop.png", "Charecter step 1 crop.png", "Charecter step 2 crop.png" ]
     $moving_left = false
@@ -34,7 +34,12 @@ class Player < Chingu::GameObject
 
 
   def move_left
-    @x = @x - 4
+    if $window.button_down?(Gosu::KbW) or $window.button_down?(Gosu::KbS)
+      @x -= Math::sin(Math::PI/4) * 4
+      else
+        @x = @x - 4
+      end
+
     if $frame_rate% 20 < 10
 
       @image = Gosu::Image["#{$images[2]}"]
@@ -45,7 +50,12 @@ class Player < Chingu::GameObject
 
   end
   def move_right
-    @x = @x + 4
+    if $window.button_down?(Gosu::KbW) or $window.button_down?(Gosu::KbS)
+      @x += Math::sin(Math::PI/4) * 4
+    else
+      @x = @x + 4
+    end
+
 
     if $frame_rate% 20 < 10
 
@@ -77,7 +87,7 @@ class Player < Chingu::GameObject
     end
     $frame_rate += 1
   end
-end
+  end
 
 
 Rpggame.new.show
