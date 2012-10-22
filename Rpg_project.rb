@@ -87,7 +87,10 @@ class Player < Chingu::GameObject
     end
     $frame_rate += 1
   end
-  end
+end
+class Boat_door < Chingu::GameObject
+
+end
 
 
 Rpggame.new.show
