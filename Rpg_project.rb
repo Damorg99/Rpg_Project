@@ -3,9 +3,10 @@ class Rpggame < Chingu::Window
   def initialize
     super
     $window.caption = 'RPG test'
-    @backround = Gosu::Image['Starting_area backround.png']
+    @background = Gosu::Image['Starting_area backround.png']
     Player.create.input = {holding_a: :move_left, holding_d: :move_right, holding_w: :move_up, holding_s: :move_down}
-    $images =  ["Cheracter back step 1 crop.png", "Charecter back step 2 crop.png", "Charecter left step 1 crop.png", "Charecter left step 2 crop.png", "Charecter right step 1 crop.png", "Charecter right step 2 crop.png", "Charecter step 1 crop.png", "Charecter step 2 crop.png" ]
+    Boat_door.create
+    $images =  ["Charecter back step 1 crop.png", "Charecter back step 2 crop.png", "Charecter left step 1 crop.png", "Charecter left step 2 crop.png", "Charecter right step 1 crop.png", "Charecter right step 2 crop.png", "Charecter step 1 crop.png", "Charecter step 2 crop.png" ]
     $moving_left = false
     $frame_rate = 0
 
@@ -17,7 +18,7 @@ class Rpggame < Chingu::Window
 
   def draw
     super
-    @backround.draw(0,0,0,1.5,1.5)
+    @background.draw(0,0,0,1.5,1.5)
 
   end
 end
@@ -89,8 +90,18 @@ class Player < Chingu::GameObject
   end
 end
 class Boat_door < Chingu::GameObject
+  traits :collision_detection, :bounding_circle
+  def initialize
+    super(:image => Gosu::Image['Boat_Door crop.png'])
+    @factor_x = 1.5
+    @factor_y = 1.5
+    @x = 405
+    @y = 193
+  end
+
 
 end
+
 
 
 Rpggame.new.show
