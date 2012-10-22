@@ -5,7 +5,7 @@ class Rpggame < Chingu::Window
     $window.caption = 'RPG test'
     @backround = Gosu::Image['Starting_area backround.png']
     Player.create.input = {holding_a: :move_left, holding_d: :move_right, holding_w: :move_up, holding_s: :move_down}
-    $images =  ["Charecter back step 1 crop.png", "Charecter back step 2 crop.png", "Charecter left step 1 crop.png", "Charecter left step 2 crop.png", "Charecter right step 1 crop.png", "Charecter right step 2 crop.png", "Charecter step 1 crop.png", "Charecter step 2 crop.png" ]
+    $images =  ["Cheracter back step 1 crop.png", "Charecter back step 2 crop.png", "Charecter left step 1 crop.png", "Charecter left step 2 crop.png", "Charecter right step 1 crop.png", "Charecter right step 2 crop.png", "Charecter step 1 crop.png", "Charecter step 2 crop.png" ]
     $moving_left = false
     $frame_rate = 0
 
