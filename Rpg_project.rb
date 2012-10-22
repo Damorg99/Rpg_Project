@@ -87,7 +87,7 @@ class Player < Chingu::GameObject
     end
     $frame_rate += 1
   end
-end
+  end
 
 
 Rpggame.new.show
