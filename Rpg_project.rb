@@ -80,6 +80,8 @@ class Player < Chingu::GameObject
     end
     $frame_rate += 1
   end
+
+
   def move_down
     @y = @y + 4
     if $frame_rate% 20 < 10
@@ -94,11 +96,11 @@ end
 class Boat_door < Chingu::GameObject
   traits :collision_detection, :bounding_circle
   def initialize
-    super(:image => Gosu::Image['Boat_Door crop.png'])
-    @factor_x = 1.5
-    @factor_y = 1.5
-    @x = 405
-    @y = 193
+    super(:image => Gosu::Image['Boat_Hole 2 crop.png'])
+    @factor_x = 1.3
+    @factor_y = 1.3
+    @x = 404.5
+    @y = 153.2
   end
 
 
