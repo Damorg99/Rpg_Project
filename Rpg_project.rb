@@ -98,11 +98,11 @@ class Boat_door < Chingu::GameObject
   traits :collision_detection, :bounding_circle
 
   def initialize
-    super(:image => Gosu::Image['Boat_Door crop.png'])
-    @factor_x = 1.5
-    @factor_y = 1.5
-    @x = 405
-    @y = 193
+    super(:image => Gosu::Image['Boat_Hole 2 crop.png'])
+    @factor_x = 1.0
+    @factor_y = 1.0
+    @x = 385
+    @y = 185
   end
 
 
